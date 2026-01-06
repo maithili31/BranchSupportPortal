@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont;
+  background: #f1f5f9;
+  color: #0f172a;
+  overflow: hidden;
+}
+
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden; 
+}
+
+.sidebar {
+  width: 34%;
+  background: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+}
+
+.search {
+  margin: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+}
+
+.search:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.message {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.message:hover {
+  background: #f8fafc;
+}
+
+.message-active {
+  background: #eef2ff;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+}
+
+.u1 { background: #94a3b8; }
+.u2 { background: #3b82f6; }
+.u3 { background: #f59e0b; }
+.u4 { background: #ef4444; }
+.u5 { background: #7f1d1d; }
+
+
+.detail-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.detail {
+  padding: 32px;
+}
+
+.detail-card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.detail h2 {
+  margin: 0 0 6px;
+}
+
+.detail-message {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.canned {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.canned button {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.canned button:hover {
+  background: #eef2ff;
+}
+
+.reply-box {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.reply-box textarea {
+  width: 100%;
+  height: 110px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  resize: none;
+  font-size: 14px;
+}
+
+.reply-box textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.reply-box button {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #213a52ff;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.reply-box button:hover {
+  background: #1d4ed8;
+}
