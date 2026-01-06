@@ -6,6 +6,7 @@ import "./db.js";
 import messages from "./routes/messages.js";
 import canned from "./routes/canned.js";
 import { setupSocket } from "./socket.js";
+import conversations from "./routes/conversations.js";
 
 const app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 app.use("/api/messages", messages);
 app.use("/api/canned", canned);
+app.use("/api/conversations", conversations);
 
 setupSocket(io);
 
