@@ -25,13 +25,16 @@ fs.createReadStream(csvPath)
     const customer = `User ${row["User ID"] || "Unknown"}`;
     const content = row["Message Body"];
 
-    if (!content || content.trim().length === 0) return;
+    if (!content || !content.trim()) return;
 
     const urgency = scoreUrgency(content);
 
     db.run(
-        "INSERT INTO messages (customer, content, urgency, replied) VALUES (?, ?, ?, 0)",
-        [customer, content, urgency]
+      `
+      INSERT INTO messages (customer, content, urgency)
+      VALUES (?, ?, ?)
+      `,
+      [customer, content, urgency]
     );
 
     inserted++;
@@ -40,7 +43,7 @@ fs.createReadStream(csvPath)
     console.log(`Seed complete. Inserted ${inserted} messages.`);
   });
 
-
+// canned replies
 db.run("INSERT INTO canned (text) VALUES (?)", [
   "Thanks for reaching out. We are reviewing your loan status."
 ]);

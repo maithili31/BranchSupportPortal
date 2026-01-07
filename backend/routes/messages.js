@@ -6,23 +6,9 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   db.all(
-    `
-    SELECT 
-      id,
-      customer,
-      content,
-      urgency,
-      response,
-      replied,
-      created_at
-    FROM messages
-    ORDER BY created_at DESC
-    `,
+    "SELECT * FROM messages ORDER BY urgency DESC, created_at DESC",
     [],
-    (err, rows) => {
-      if (err) return res.status(500).json(err);
-      res.json(rows);
-    }
+    (e, rows) => res.json(rows)
   );
 });
 
@@ -32,8 +18,8 @@ router.post("/", (req, res) => {
 
   db.run(
     `
-    INSERT INTO messages (customer, content, urgency, replied)
-    VALUES (?, ?, ?, 0)
+    INSERT INTO messages (customer, content, urgency)
+    VALUES (?, ?, ?)
     `,
     [customer, content, urgency],
     function () {
